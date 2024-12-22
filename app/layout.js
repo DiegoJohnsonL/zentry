@@ -1,7 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import GSAP from "./components/gsap";
-
+import { AudioProvider } from "./components/audio-provider";
+import SmoothScroll from "./components/smooth-scroll";
 const circularWeb = localFont({
   src: "./fonts/circularweb-book.woff2",
   variable: "--font-circularweb",
@@ -39,8 +40,10 @@ export default function RootLayout({ children }) {
       <body
         className={`antialiased ${circularWeb.variable} ${general.variable} ${robertMedium.variable} ${robertRegular.variable} ${zentryRegular.variable} `}
       >
-        {children}
-        <GSAP />
+        <SmoothScroll>
+          <GSAP />
+          <AudioProvider>{children}</AudioProvider>
+        </SmoothScroll>
       </body>
     </html>
   );

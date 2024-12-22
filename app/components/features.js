@@ -2,8 +2,11 @@
 
 import { useState, useRef } from "react";
 import { TiLocationArrow } from "react-icons/ti";
+import { usePlayAudio } from "../../hooks/use-play-audio";
 
 export const BentoTilt = ({ children, className = "" }) => {
+  const playAudio = usePlayAudio();
+
   const [transformStyle, setTransformStyle] = useState("");
   const itemRef = useRef(null);
 
@@ -29,6 +32,7 @@ export const BentoTilt = ({ children, className = "" }) => {
   return (
     <div
       ref={itemRef}
+      onMouseEnter={playAudio}
       className={className}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -54,7 +58,9 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
     });
   };
 
-  const handleMouseEnter = () => setHoverOpacity(1);
+  const handleMouseEnter = () => {
+    setHoverOpacity(1);
+  };
   const handleMouseLeave = () => setHoverOpacity(0);
 
   return (

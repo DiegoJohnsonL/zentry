@@ -1,7 +1,5 @@
 import dynamic from "next/dynamic";
-const Hero = dynamic(() => import("./components/hero"), {
-  ssr: false,
-});
+import Hero from "./components/hero";
 import Navbar from "./components/navbar";
 import { Suspense } from "react";
 import Features from "./components/features";
@@ -9,7 +7,7 @@ import Contact from "./components/contact";
 import About from "./components/about";
 import Story from "./components/story";
 
-export default function Home() {
+function Home() {
   return (
     <main className="relative min-h-screen w-screen overflow-x-hidden">
       <Suspense>
@@ -23,3 +21,9 @@ export default function Home() {
     </main>
   );
 }
+
+const HomePage = dynamic(() => Promise.resolve(Home), {
+  ssr: false,
+});
+
+export default HomePage;

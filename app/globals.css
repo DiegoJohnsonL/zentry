@@ -17,7 +17,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  @apply font-general;
+  @apply font-general scroll-smooth;
   width: 100dvw;
   overflow-x: hidden;
 }

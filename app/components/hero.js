@@ -80,7 +80,7 @@ const Hero = () => {
   const getVideoSrc = (index) => `/videos/hero-${index}.mp4`;
 
   return (
-    <div className="relative h-dvh w-screen overflow-x-hidden">
+    <div className="relative h-dvh w-screen overflow-x-hidden" id="nexus">
       {loading && <LoadingHero />}
       <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75">
         <div>
