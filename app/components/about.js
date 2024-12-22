@@ -2,7 +2,6 @@
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-
 import AnimatedTitle from "./animated-title";
 import Image from "next/image";
 
