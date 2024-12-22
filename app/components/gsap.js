@@ -2,9 +2,11 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useLayoutEffect } from "react";
 
 export default function GSAP() {
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  }, []);
   return null;
 }
