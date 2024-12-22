@@ -1,4 +1,7 @@
-import Hero from "./components/hero";
+import dynamic from "next/dynamic";
+const Hero = dynamic(() => import("./components/hero"), {
+  ssr: false,
+});
 import Navbar from "./components/navbar";
 import { Suspense } from "react";
 import Features from "./components/features";
