@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-
+import GSAP from "./components/gsap";
 const circularWeb = localFont({
   src: "./fonts/circularweb-book.woff2",
   variable: "--font-circularweb",
@@ -39,6 +39,7 @@ export default function RootLayout({ children }) {
         className={`antialiased ${circularWeb.variable} ${general.variable} ${robertMedium.variable} ${robertRegular.variable} ${zentryRegular.variable} `}
       >
         {children}
+        <GSAP />
       </body>
     </html>
   );

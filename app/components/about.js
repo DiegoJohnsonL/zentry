@@ -2,12 +2,9 @@
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
 
 import AnimatedTitle from "./animated-title";
 import Image from "next/image";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   useGSAP(() => {
@@ -31,12 +28,12 @@ const About = () => {
 
   return (
     <div id="about" className="min-h-screen w-screen">
-      <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
+      <div className="relative pb-8 pt-36 flex flex-col items-center gap-5">
         <p className="font-general text-sm uppercase md:text-[10px]">Welcome to Zentry</p>
 
         <AnimatedTitle
           title="Disc<b>o</b>ver the world's <br /> largest shared <b>a</b>dventure"
-          containerClass="mt-5 !text-black text-center"
+          className="mt-5 !text-black text-center"
         />
 
         <div className="about-subtext">
@@ -49,7 +46,7 @@ const About = () => {
       </div>
 
       <div className="h-dvh w-screen" id="clip">
-        <div className="mask-clip-path about-image">
+        <div className="mask-clip-path absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw]">
           <Image
             src="/img/about.webp"
             alt="Background"

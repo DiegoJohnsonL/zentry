@@ -2,13 +2,10 @@
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TiLocationArrow } from "react-icons/ti";
 import { useEffect, useRef, useState } from "react";
 import Button from "./button";
 import VideoPreview from "./video-preview";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -25,7 +22,6 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    console.log(loadedVideos);
     if (loadedVideos === totalVideos - 1) {
       setLoading(false);
     }
@@ -85,16 +81,7 @@ const Hero = () => {
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden">
-      {loading && (
-        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
-          <div className="three-body">
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-            <div className="three-body__dot"></div>
-          </div>
-        </div>
-      )}
-
+      {loading && <LoadingHero />}
       <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75">
         <div>
           <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
@@ -170,3 +157,15 @@ const Hero = () => {
 };
 
 export default Hero;
+
+export function LoadingHero() {
+  return (
+    <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+      <div className="three-body">
+        <div className="three-body__dot"></div>
+        <div className="three-body__dot"></div>
+        <div className="three-body__dot"></div>
+      </div>
+    </div>
+  );
+}
