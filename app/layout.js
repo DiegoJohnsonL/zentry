@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import GSAP from "./components/gsap";
+
 const circularWeb = localFont({
   src: "./fonts/circularweb-book.woff2",
   variable: "--font-circularweb",

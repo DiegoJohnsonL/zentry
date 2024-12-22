@@ -1,8 +1,4 @@
-import dynamic from "next/dynamic";
-const Hero = dynamic(() => import("./components/hero"), {
-  ssr: false,
-  loading: () => <div className="h-screen w-full bg-violet-50"></div>,
-});
+import Hero from "./components/hero";
 import Navbar from "./components/navbar";
 import { Suspense } from "react";
 import Features from "./components/features";
